@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'JeonjuCraftGoR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftGoR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PartialSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'JeonjuCraftGoR';
+    background-color: #F6F6F6;
+    width: 800px;
+    height: 99.5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+#wrap {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border: 1px solid white;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#title_wrap {
+    margin-top: 150px;
+    text-align: center;
+    color: #6D3B1C;
+    cursor: pointer;
+}
+
+#title {
+    font-family: 'PartialSansKR-Regular';
+    font-size: 19pt;
+}
+
+#subtitle {
+    font-family: 'JeonjuCraftGoR';
+    font-size: 12pt;
+    margin-top: 2px;
+}
+
+#notice{
+    margin: 100px 0;
+    color: #383737;
+    text-align: center;
+}
+
+#first{
+    font-weight: 600;
+    font-size: 20pt;
+}
+
+#second{
+    font-size: 15pt;
+}
+
+
+#btn_wrap {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn {
+    height: 40px;
+    width: 100px;
+    font-family: 'JeonjuCraftGoR';
+    font-size: 13pt;
+    border: 0;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: #D4B886;
+    cursor: pointer;
+}
+
+#return{
+    background-color: #6D3B1C;
+}

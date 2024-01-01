@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+  <head>
+    <link rel="stylesheet" href="{% static 'css/my_page.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원정보수정</title>
+    <link rel="icon" href="{% static 'img/letter.png' %}" type="image/x-icon">
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div id="btn_wrap">
+        <button type="button" id="logout_btn" onclick="location.href='{% url 'users:logout_view' %}'">
+          <img src="{% static 'img/logout.png' %}">
+        </button>
+        <button type="button" id="return_btn" onclick="location.href='{% url 'main:main' %}'">
+          <img src="{% static 'img/return.png' %}">
+        </button>
+      </div>
+      <a href="{% url 'main:main' %}">
+        <div id="title_wrap">
+          <div id="title">pit-a-pat</div>
+          <div id="subtitle">: 온라인 롤링페이퍼</div>
+        </div>
+      </a>
+      <div id="username" name="username">안녕하세요,
+        {{name }}님✋</div>
+      <div id="my_wrap">
+        <div id="my_paper">{{name }}님의 롤링페이퍼</div>
+        <div id="my_message">{{name }}님의 메시지</div>
+      </div>
+      <div id="my_info_wrap">
+        <div id="my_paper_wrap">
+          <div id="my_papers">
+            {% for i in my_papers %}
+              <a href="http://localhost:8000/papers/{{i.paper_number}}">
+                <p>{{i.subject}}</p>
+              </a>
+              {% endfor%}
+            </div>
+          </div>
+          <div id="my_message_wrap">
+            <div id="my_messages">
+              {% for i in my_messages %}
+                <a href="http://localhost:8000/papers/{{i.paper_number}}">
+                  <p>{{i.content}}</p>
+                </a>
+                {% endfor%}
+              </div>
+            </div>
+          </div>
+          <button type="button" id="update_btn" onclick="location.href='{% url 'users:update' %}'">회원정보수정✏️</button>
+        </div>
+      </body>
+
+    </html>

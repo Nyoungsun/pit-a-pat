@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+  <head>
+    <link rel="stylesheet" href="{% static 'css/change_pwd.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호변경</title>
+    <link rel="icon" href="{% static 'img/letter.png' %}" type="image/x-icon"> 
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div id="header_btn_wrap">
+        <button type="button" id="logout_btn" onclick="location.href='{% url 'users:logout_view' %}'">
+          <img src="{% static 'img/logout.png' %}">
+        </button>
+        <button type="button" id="return_btn" onclick="location.href='javascript:history.back()'">
+          <img src="{% static 'img/return.png' %}">
+        </button>
+      </div>
+      <a href="{% url 'main:main' %}">
+        <div id="title_wrap">
+          <div id="title">pit-a-pat</div>
+          <div id="subtitle">: 온라인 롤링페이퍼</div>
+        </div>
+      </a>
+      <form method="post">
+        {% csrf_token %}
+        <div id="input_wrap">
+
+          <div class="user_div">
+            <input type='password' class="user_input" id='pwd' name='pwd' placeholder="비밀번호를 입력하세요." value="{{ new_pwd }}">
+          </div>
+          <div class="check_div">{{ pwd_err }}</div>
+          <div class="user_div">
+            <input type='password' class="user_input" id='check_pwd' name='check_pwd' placeholder="비밀번호 확인을 입력하세요." value="{{ confirm_pwd }}">
+          </div>
+          <div class="check_div">{{ chk_err }}</div>
+          <div class="btn_wrap">
+            <button type="submit" id="btn">완료</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </body>
+
+</html>

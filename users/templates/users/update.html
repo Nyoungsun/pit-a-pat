@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+  <head>
+    <link rel="stylesheet" href="{% static 'css/update.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원정보수정</title>
+    <link rel="icon" href="{% static 'img/letter.png' %}" type="image/x-icon">
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div id="header_btn_wrap">
+        <button type="button" id="logout_btn" onclick="location.href='{% url 'users:logout_view' %}'">
+          <img src="{% static 'img/logout.png' %}">
+        </button>
+        <button type="button" id="return_btn" onclick="location.href='javascript:history.back()'">
+          <img src="{% static 'img/return.png' %}">
+        </button>
+      </div>
+      <a href="{% url 'main:main' %}">
+        <div id="title_wrap">
+          <div id="title">pit-a-pat</div>
+          <div id="subtitle">: 온라인 롤링페이퍼</div>
+        </div>
+      </a>
+      <form method="post">
+        {% csrf_token %}
+        <div id="input_wrap">
+          <div class="user_div">
+            <input type='text' class="user_input" id='first_name' name='first_name' placeholder="성을 입력하세요." value="{{ first_name.0 }}">
+          </div>
+          <div class="check_div">{{ first_name.1 }}</div>
+          <div class="user_div">
+            <input type='text' class="user_input" id='user_name' name='last_name' placeholder="이름을 입력하세요." value="{{ last_name.0 }}">
+          </div>
+          <div class="check_div">{{ last_name.1 }}</div>
+          <div class="user_div">
+            <input type='text' class="user_input" id='user_name' name='user_name' placeholder="아이디를 입력하세요." readonly="readonly" value="{{ username.0 }}">
+          </div>
+          <div class="check_div">{{ username.1 }}</div>
+          <div class="user_div">
+            <input type='email' class="user_input" id='email' name='email' placeholder="이메일을 입력하세요." value="{{ email.0 }}">
+          </div>
+          <div class="check_div">{{ email.1 }}</div>
+          <div class="btn_wrap">
+            <button type="button" id="change_pwd" onclick="location.href='{% url 'users:change_pwd' %}'">비밀번호 변경</button>
+          </div>
+          <div class="btn_wrap">
+            <button type="submit" id="btn">완료</button>
+          </div>
+        </div>
+      </form>
+      <div id="withdraw_wrap">
+        <button type="button" id='withdraw' onclick="location.href='{% url 'users:withdraw_view' %}'">회원탈퇴</button>
+      </div>
+    </div>
+  </body>
+
+</html>

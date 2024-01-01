@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+  <head>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="icon" href="{% static 'img/letter.png' %}" type="image/x-icon">
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div id="header_btn_wrap">
+        <button type="button" id="return_btn" onclick="location.href='javascript:history.back()'">
+          <img src="{% static 'img/return.png' %}">
+        </button>
+      </div>
+      <a href="{% url 'main:main' %}">
+        <div id="title_wrap">
+          <div id="title">pit-a-pat</div>
+          <div id="subtitle">: 온라인 롤링페이퍼</div>
+        </div>
+      </a>
+      <form method="post">
+        {% csrf_token %}
+        <div id="input_wrap">
+          <div class="user_div">
+            <input type='text' class="user_input" id='user_id' name='user_id' placeholder="아이디를 입력하세요." value="{{ user_id.0 }}">
+          </div>
+          <div id="check_id" class="check_div">{{ user_id.1 }}</div>
+          <div class="user_div">
+            <input type='text' class="user_input" id='first_name' name='first_name' placeholder="성을 입력하세요." value="{{ first_name.0 }}">
+          </div>
+          <div class="check_div">{{ first_name.1 }}</div>
+          <div class="user_div">
+            <input type='text' class="user_input" id='last_name' name='last_name' placeholder="이름을 입력하세요." value="{{ last_name.0 }}">
+          </div>
+          <div class="check_div">{{ last_name.1 }}</div>
+          <div class="user_div">
+            <input type='email' class="user_input" id='email' name='email' placeholder="이메일을 입력하세요." value="{{ email.0 }}">
+          </div>
+          <div class="check_div">{{ email.1 }}</div>
+          <div class="user_div">
+            <input type='password' class="user_input" id='user_pwd' name='user_pwd' placeholder="비밀번호를 입력하세요." value="{{ user_pwd.0 }}">
+          </div>
+          <div class="check_div">{{ user_pwd.1 }}</div>
+          <div class="user_div">
+            <input type='password' class="user_input" id='check_pwd' name='check_pwd' placeholder="비밀번호 확인을 입력하세요." value="{{ check_pwd.0 }}">
+          </div>
+          <div class="check_div">{{ check_pwd.1 }}</div>
+          <div id="btn_wrap">
+            <button type="submit" class="btn">완료</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+
+</html>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document
+        .cookie
+        .split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  var csrftoken = getCookie('csrftoken');
+
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+  $.ajaxSetup({
+    beforeSend: function (xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+</script>
+<script type="text/javascript">
+  $('#user_id').focusout(function () { //중복 아이디 체크
+    if ($('#user_id').val() == '') {
+      $('#check_id').text('먼저 아이디를 입력하세요.');
+    } else {
+      //서버 요청
+      $.ajax({
+        type: 'post',
+        url: '/users/check_id',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'X-CSRF-TOKEN': csrftoken
+        },
+        data: 'user_id=' + $('#user_id').val(), //서버로 보내는 데이터
+        dataType: "json", //서버로부터 받는 데이터형
+        success: function (data) {
+         if (data['msg'] == 'exist') {
+            $('#check_id').text('사용 불가능한 아이디입니다.');
+          } else if(data['msg'] == 'non_exist') {
+            $('#check_id').text('사용 가능한 아이디입니다.');
+            $('#check_id').css('color', 'blue');
+          }
+        },
+        error: function (err) {
+          console.log(err);
+        }
+      });
+    }
+  });
+</script>

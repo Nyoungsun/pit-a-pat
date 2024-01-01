@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+  <head>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="icon" href="{% static 'img/letter.png' %}" type="image/x-icon">
+  </head>
+
+  <body>
+    <div id="wrap">
+      <a href="{% url 'main:main' %}">
+        <div id="title_wrap">
+          <div id="title">pit-a-pat</div>
+          <div id="subtitle">: 온라인 롤링페이퍼</div>
+        </div>
+      </a>
+      <form method="post">
+        {% csrf_token %}
+        <div id="input_wrap">
+          <div class="user_div">
+            <input type='text' class="user_input" id='user_id' name='username' placeholder="아이디를 입력하세요." value="{{ form.username.value|default_if_none:'' }}">
+          </div>
+          <div class="check_div">
+            {% if 'username' in form.errors %}
+              아이디를 입력해주세요.
+            {% endif %}
+          </div>
+          <div class="user_div">
+            <input type='password' class="user_input" id='user_pwd' name='password' placeholder="비밀번호를 입력하세요." value="{{ form.password.value|default_if_none:'' }}">
+          </div>
+          <div class="check_div">
+            {% if 'password' in form.errors %}
+              비밀번호를 입력해주세요.
+            {% elif '__all__' in form.errors %}
+              아이디 또는 비밀번호가 올바르지 않습니다.
+            {% endif %}
+          </div>
+          <div id="btn_wrap">
+            <button type="submit" class="btn">로그인</button>
+            <br>
+            <br>
+            <button type="button" class="btn" onclick="location.href='{% url 'users:signup_view' %}'">회원가입</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+
+</html>

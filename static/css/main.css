@@ -1,0 +1,193 @@
+@font-face {
+    font-family: 'PartialSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JeonjuCraftGoR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftGoR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KCCChassam';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'JeonjuCraftGoR';
+    background-color: #F6F6F6;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    z-index: 3;
+    background-color: #F6F6F6;
+    top: 0;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    color: #6D3B1C;
+    width: 800px;
+    padding: 20px 0;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+}
+
+#title_wrap{
+    cursor: pointer;
+}
+
+#title {
+    font-family: 'PartialSansKR-Regular';
+    font-size: 17pt;
+}
+
+#subtitle {
+    font-family: 'JeonjuCraftGoR';
+    font-size: 10pt;
+    margin-top: 2px;
+}
+
+#header_btn_wrap{
+    padding-top: 5px;
+}
+
+#logout_btn {
+    text-align: right;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+#logout_btn:hover {
+    opacity: unset;
+}
+
+#home_btn {
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+#home_btn:hover {
+    opacity: unset;
+}
+
+#home_btn img {
+    width: 25px;
+}
+
+#content_wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+#first_content {
+    position: relative;
+    top: 20px;
+    z-index: 2;
+    height: 100%;
+    background-color: #D4B886;
+    border-radius: 20px;
+    padding: 50px 40px;
+    font-size: 20pt;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 10px 10px -10px gray;
+    font-family: 'KCCChassam';
+}
+
+#create_paper_btn {
+    margin-top: 50px;
+    border: 0;
+    color: white;
+    background-color: #6D3B1C;
+    font-size: 12pt;
+    font-weight: 600;
+    font-family: 'JeonjuCraftGoR';
+    padding: 25px;
+    border-radius: 30px;
+}
+
+#create_paper_btn {
+    cursor: pointer;
+}
+
+#second_content {
+    padding: 40px;
+    z-index: 1;
+    height: 100%;
+    text-align: center;
+    background-color: white;
+}
+
+.rolling_paper {
+    border: 1px solid #FBFBFB;
+    background-color: #F8F8FF;
+    box-shadow: 0 10px 10px -10px #BEC5D0;
+    font-size: 13pt;
+    margin: 30px 10px;
+    padding: 10px;
+    width: 150px;
+    height: 115px;
+    display: inline-block;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.rolling_paper_subject {
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 115px;
+}
+
+.rolling_paper:active {
+    box-shadow: inset -.3rem -.1rem 1.4rem #FBFBFB, inset .3rem .4rem .8rem #BEC5D0;
+    cursor: pointer;
+}
+
+footer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    height: 210px;
+    background-color: #383737;
+}
+
+#footer_content_wrap {
+    color: white;
+    padding: 40px;
+}
+
+#first_footer_content {
+    font-family: 'PartialSansKR-Regular';
+    line-height: 1.5em;
+    font-size: 17pt;
+}
+
+#third_footer_content {
+    font-size: 10pt;
+    line-height: 1.5em;
+    color: #a8a8a8;
+}

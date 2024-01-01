@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/paper.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>롤링페이퍼</title>
+  <link rel="icon" href="{% static 'img/letter.png' %}" type="image/x-icon"> 
+
+</head>
+
+<body>
+  <div id="wrap">
+    <!-- 메인으로 이동버튼 및 롤링페이퍼 삭제버튼 -->
+    {% if owner == request.user.username %}
+    <div id="header_btn_wrap">
+      <form action="{% url 'papers:deletePaper' paper_number %}" method="post">
+        {% csrf_token %}
+        <button id="delete_paper" type="submit">
+          <img src="{% static 'img/delete.png' %}">
+        </button>
+      </form>
+      <button class="go_main" type="submit" onclick="location.href='{% url 'main:main' %}'">
+        <img src="{% static 'img/return.png' %}">
+      </button>
+    </div>
+    {% else %}
+    <div id="header_btn_wrap">
+      <button class="go_main" type="submit" onclick="location.href='{% url 'main:main' %}'">
+        <img src="{% static 'img/return.png' %}">
+      </button>
+    </div>
+    {% endif %}
+    <!-- 메인으로 이동버튼 및 롤링페이퍼 삭제버튼 -->
+
+    <!-- 롤링페이퍼 제목 및 변경버튼-->
+    {% if owner == request.user.username %}
+    <div id="header_wrap">
+      <form action="{% url 'papers:editPaper' paper_number %}" method="post">
+        {% csrf_token %}
+        <div id="subject_div">
+          <input type="text" id="subject" name="subject" value="{{ subject }}" placeholder="제목을 입력하세요.">
+        </div>
+        <button id="edit_subject_btn" type="submit">제목 변경</button>
+      </form>
+    </div>
+    {% else %}
+    <div id="header_wrap">
+      <div id="subject_div_2">
+        <div type="text" id="subject" name="subject">{{ subject }}</div>
+      </div>
+    </div>
+    {% endif %}
+    <!-- 롤링페이퍼 제목 및 변경버튼-->
+
+    <!-- 제목 경고문구-->
+    <div>
+      <span class="error" id="paper_err" style="color: red;">{{ paper_err }}</span>
+    </div>
+    <!-- 제목 경고문구-->
+
+    <!-- 메시지 목록 -->
+    <div id="message_wrap">
+      {% for i in messages %}
+      {% if user.is_active and request.user.username == i.nickname %}
+      <div class="message_div">
+        <form action="{% url 'message:editMessage' i.message_number %}" method="post">
+          {% csrf_token %}
+          <textarea class="message_content" name="content" placeholder="메시지를 입력하세요">{{ i.content }}</textarea>
+          <div class="nickname">{{ i.nickname }}</div>
+          <button class="msg_btn" id="edit_msg_btn" type="submit">
+            <img src="{% static 'img/edit_msg.png' %}">
+          </button>
+        </form>
+        <form action="{% url 'message:deleteMessage' i.message_number %}" method="post">
+          {% csrf_token %}
+          <button class="msg_btn" id="delete_msg_btn" type="submit">
+            <img src="{% static 'img/delete.png' %}">
+          </button>
+        </form>
+      </div>
+      {% else %}
+      <div class="message_div">
+        <textarea readonly class="message_content" name="content" placeholder="메시지를 입력하세요">{{ i.content }}</textarea>
+        <div class="nickname">{{ i.nickname }}</div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <!-- 메시지 목록 -->
+
+    <!-- 메시지 추가-->
+    <div id="footer_wrap">
+      <form action="{% url 'message:createMessage' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="paper_uid" value="{{ paper_number }}">
+        <div id="add_message">
+          <input type="text" name="content" value="" placeholder="메시지를 입력하세요.">
+        </div>
+        <button id="add_message_btn" type="submit">메세지 추가</button>
+      </form>
+      <!-- 메시지 경고문구-->
+      <div id="msg_err">
+        <span class="error" style="color: red;">{{ msg_err }}</span>
+      </div>
+      <!-- 메시지 경고문구-->
+    </div>
+    <!-- 메시지 추가-->
+
+  </div>
+</body>
+
+</html>

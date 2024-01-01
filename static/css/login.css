@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'JeonjuCraftGoR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftGoR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PartialSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'JeonjuCraftGoR';
+    background-color: #F6F6F6;
+    width: 800px;
+    height: 99.5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+#wrap {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border: 1px solid white;
+}
+
+#title_wrap {
+    margin-top: 100px;
+    text-align: center;
+    color: #6D3B1C;
+    cursor: pointer;
+}
+
+#title {
+    font-family: 'PartialSansKR-Regular';
+    font-size: 19pt;
+}
+
+#subtitle {
+    font-family: 'JeonjuCraftGoR';
+    font-size: 12pt;
+    margin-top: 2px;
+}
+
+#input_wrap {
+    padding-top: 20%;
+}
+
+#user_pwd {
+    margin-top: 20px;
+}
+
+.user_div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 230px;
+    border-bottom: 1px solid lightgray;
+}
+
+.user_input {
+    color: #6D3B1C;
+    font-family: 'JeonjuCraftGoR';
+    font-size: 11pt;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+
+.user_input::placeholder {
+    color: lightgray;
+    font-family: 'JeonjuCraftGoR';
+}
+
+.check_div {
+    color: red;
+    font-size: 9pt;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#btn_wrap {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn {
+    height: 40px;
+    width: 230px;
+    font-family: 'JeonjuCraftGoR';
+    font-size: 13pt;
+    border: 0;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: #D4B886;
+    cursor: pointer;
+}
