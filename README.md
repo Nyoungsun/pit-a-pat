@@ -28,26 +28,26 @@
 <h2>🗺️사이트멥</h2>
 
 <h2>📄페이지</h2>
-<h1>메인페이지</h1>
+<h4>메인페이지</h4>
 <img src='https://github.com/Nyoungsun/pit-a-pat/assets/121652746/09ff995c-f134-4568-9564-9d51f17bfa1d'>
 
-<h1>롤링페이퍼페이지</h1>
+<h4>롤링페이퍼페이지</h4>
 <img src='https://github.com/Nyoungsun/pit-a-pat/assets/121652746/d3dff6bb-ae92-43cb-b1bd-0ae4846d3b48'>
 
-<h1>회원가입페이지</h1>
+<h4>회원가입페이지</h4>
 <img src='https://github.com/Nyoungsun/pit-a-pat/assets/121652746/8162c06a-f30d-4694-92ad-5a908e3ed16d'>
 
-<h1>로그인페이지</h1>
+<h4>로그인페이지</h4>
 <img src='https://github.com/Nyoungsun/pit-a-pat/assets/121652746/5e9f5649-897b-4706-bb1d-8cabb264cf16'>
 
-<h1>마이페이지</h1>
+<h4>마이페이지</h4>
 <img src='https://github.com/Nyoungsun/pit-a-pat/assets/121652746/d8e5e109-1d33-4e32-90fc-f733f2f1dd03'>
 
-<h1>내정보수정페이지</h1>
+<h4>내정보수정페이지</h4>
 <img src='https://github.com/Nyoungsun/pit-a-pat/assets/121652746/cf0b84ac-b5aa-4293-8778-3ef32c56ebeb'>
 
-<h1>비밀번호변경페이지</h1>
+<h4>비밀번호변경페이지</h4>
 <img src='https://github.com/Nyoungsun/pit-a-pat/assets/121652746/edf332e6-1896-400a-bbea-587381828058'>
 
-<h1>회원탈퇴페이지</h1>
+<h4>회원탈퇴페이지</h4>
 <img src='https://github.com/Nyoungsun/pit-a-pat/assets/121652746/34ec8156-02af-4955-97ee-3078b5947bc1'>
